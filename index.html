@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miroslav Stepanek - Website Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Miroslav Stepanek - Web portfolio</title>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
 </head>
-<body>
-    <p>Hello world!</p>
+<body data-scroll-container>
+  <div id="section1" class="fixed-content" data-scroll-section>
+    <div class="top">
+        <p class="ms-logo">MIROSLAV STEPANEK</p>
+    </div>
+    <div class="dev-logo">
+        <h1 class="dev" >DEV.</h1>
+        <h2 class="barcode">WEB GYM MUSIC</h2>
+    </div>
+
+    <div class="ticker">
+        <div class="ticker-text" id="ticker-text">
+          <span class="ticker-item">AVAILABLE FOR WORK MAY 2024  </span>
+          <span class="ticker-item">AVAILABLE FOR WORK MAY 2024  </span>
+          <span class="ticker-item">AVAILABLE FOR WORK MAY 2024  </span>
+          <span class="ticker-item">AVAILABLE FOR WORK MAY 2024  </span>
+          <span class="ticker-item">AVAILABLE FOR WORK MAY 2024  </span>
+          <span class="ticker-item">AVAILABLE FOR WORK MAY 2024  </span>
+        </div>
+    </div>
+  </div>
+  <div id="section2" class="sliding-content" data-scroll-section>
+    <h2>More Content on Black Background</h2>
+  </div>
+  <script src="js/scripts.js"></script>
 </body>
 </html>

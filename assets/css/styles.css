@@ -1,17 +1,120 @@
 /* Roboto */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* IBM Plex Mono */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
 /* Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 /* Monofett */
-@import url('https://fonts.googleapis.com/css2?family=Monofett&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
 /* Newsreader */
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:wght@400;700&display=swap");
 /* Libre Barcode 39 Extended Text */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&display=swap");
 /* Zen Tokyo Zoo */
-@import url('https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap");
 /* Inria Serif */
-@import url('https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap');
- 
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap");
+
+/* Váš hlavní CSS soubor (assets/css/styles.css) */
+/* Váš hlavní CSS soubor (assets/css/styles.css) */
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+[data-scroll-container] {
+  height: 200vh;
+}
+
+.sliding-content {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fixed-content {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #f0e8d8;
+  color: #333;
+}
+
+.sliding-content {
+  background: black;
+  color: white;
+}
+
+.dev {
+  font-size: 10rem;
+  font-family: "Inria Serif";
+  margin: 0;
+  padding: 0;
+}
+
+.barcode {
+  font-family: "Libre Barcode 39 Extended Text";
+  font-size: 3.1rem;
+  margin: 0;
+  padding: 0;
+  color: #37210e;
+}
+
+.dev-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #37210e;
+}
+
+.ms-logo {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Monofett";
+  z-index: 1000;
+  font-size: 1.2rem;
+  color: #37210e;
+}
+
+.ticker {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5vh;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: #e1dbc5;
+  color: #37210e;
+  font-family: "IBM Plex Mono";
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+.ticker-text {
+  white-space: nowrap;
+  animation: ticker 20s linear infinite;
+}
+
+.ticker-item {
+  padding-right: 70px; 
+}
+
+@keyframes ticker {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% - 100vw)); /* Adjust the width based on your content */
+    }
+  }
+  
