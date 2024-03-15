@@ -2,7 +2,8 @@
     const locomotiveScroll = new LocomotiveScroll();
 })();
 
-const ticker = document.getElementById('ticker-text');
-
-// Clone the original ticker content
-ticker.innerHTML += ticker.innerHTML;
+document.addEventListener('DOMContentLoaded', function () {
+    const ticker = document.getElementById('ticker-text');
+    ticker.innerHTML += ticker.innerHTML; // This duplicates the ticker content
+});
+  

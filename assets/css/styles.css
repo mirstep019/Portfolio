@@ -1,15 +1,15 @@
 /* Roboto */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* IBM Plex Mono */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap");
 /* Inter */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 /* Monofett */
 @import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
 /* Newsreader */
 @import url("https://fonts.googleapis.com/css2?family=Newsreader:wght@400;700&display=swap");
 /* Libre Barcode 39 Extended Text */
-@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text:wght@400;500;600;700&display=swap");
 /* Zen Tokyo Zoo */
 @import url("https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap");
 /* Inria Serif */
@@ -57,6 +57,7 @@ html {
   font-family: "Inria Serif";
   margin: 0;
   padding: 0;
+  font-weight: 500;
 }
 
 .barcode {
@@ -65,6 +66,7 @@ html {
   margin: 0;
   padding: 0;
   color: #37210e;
+  font-weight: 600;
 }
 
 .dev-logo {
@@ -82,7 +84,7 @@ html {
   transform: translateX(-50%);
   font-family: "Monofett";
   z-index: 1000;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #37210e;
 }
 
@@ -96,13 +98,16 @@ html {
   background-color: #e1dbc5;
   color: #37210e;
   font-family: "IBM Plex Mono";
-  font-weight: bolder;
+  font-weight: 500;
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
 }
 
 .ticker-text {
   white-space: nowrap;
-  animation: ticker 20s linear infinite;
+  animation: ticker 50s linear infinite;
+  animation-delay: -10s;
 }
 
 .ticker-item {
@@ -110,11 +115,10 @@ html {
 }
 
 @keyframes ticker {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-100% - 100vw)); /* Adjust the width based on your content */
-    }
+  0% {
+    transform: translate3d(0, 0, 0);
   }
-  
+  100% {
+    transform: translate3d(-50%, 0, 0); /* Only move half the content's width to restart the loop */
+  }
+}
