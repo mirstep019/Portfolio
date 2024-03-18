@@ -56,11 +56,15 @@ html {
 }
 
 .sliding-content {
+  padding: 60px; /* Přidání paddingu místo marginu */
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* Zarovnání obsahu k horní části */
+  justify-content: center; /* Zarovnání obsahu k levé části */
   flex-direction: column;
+  background: black;
+  color: white;
+  position: relative; /* Důležité pro absolutní pozicování vnitřního obsahu */
 }
 
 .fixed-content {
@@ -71,11 +75,6 @@ html {
   flex-direction: column;
   background: #f0e8d8;
   color: #333;
-}
-
-.sliding-content {
-  background: black;
-  color: white;
 }
 
 .dev {
@@ -155,12 +154,16 @@ html {
 }
 
 .what-text{
-  font-size: 10rem;
+  font-size: 9vw;
   font-family: "Roboto";
   margin: 0;
   padding: 0;
   font-weight: 700;
   color: #C5B392;
+  transition: transform 7s ease, font-size 7s ease;
 }
 
-
+.animate-title {
+  transform: translate(-75%, -120%); 
+  font-size: 7vw; 
+}
