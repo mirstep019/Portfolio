@@ -56,15 +56,15 @@ html {
 }
 
 .sliding-content {
-  padding: 60px; /* Přidání paddingu místo marginu */
+  padding: 60px;
   height: 100vh;
   display: flex;
-  align-items: center; /* Zarovnání obsahu k horní části */
-  justify-content: center; /* Zarovnání obsahu k levé části */
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
   background: black;
   color: white;
-  position: relative; /* Důležité pro absolutní pozicování vnitřního obsahu */
+  position: relative;
 }
 
 .fixed-content {
@@ -154,16 +154,74 @@ html {
 }
 
 .what-text{
-  font-size: 9vw;
+  font-size: 8vw;
   font-family: "Roboto";
   margin: 0;
   padding: 0;
   font-weight: 700;
   color: #C5B392;
-  transition: transform 7s ease, font-size 7s ease;
 }
 
-.animate-title {
-  transform: translate(-75%, -120%); 
-  font-size: 7vw; 
+.left-content {
+  flex-basis: 50%; /* Adjust the width accordingly */
 }
+
+.right-content {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background: #222222; 
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 20px; 
+  color: #222222;
+}
+
+.card-toggle {
+  display: block; 
+  width: 100%; 
+  cursor: none;
+}
+.card-title {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: none;
+  padding-left: 20px;
+  color: #C5B392;
+}
+
+.card-toggle h2{
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 2.3rem;
+  margin: 10px;
+}
+
+.toggle-icon {
+  font-size: 3rem;
+  padding-right: 40px;
+}
+
+.card-content {
+  margin-top: 0;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding-left: 30px;
+  padding-right: 20px;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  max-height: 0; 
+}
+.card.active, .card.active h2{
+  background: #C5B392; 
+  color: #37210e;
+}
+
+

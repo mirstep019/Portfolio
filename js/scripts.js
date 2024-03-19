@@ -44,16 +44,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    const cardToggles = document.querySelectorAll('[data-card] .card-toggle');
 
+    cardToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+            const card = this.closest('.card');
+            const content = card.querySelector('.card-content');
+            const icon = card.querySelector('.toggle-icon');
 
-  const whatText = document.querySelector('.what-text');
+            // Close any open card content and remove the active class
+            document.querySelectorAll('.card .card-content').forEach(function (item) {
+                if (item !== content && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    item.style.maxHeight = null;
+                    item.closest('.card').classList.remove('active');
+                    item.closest('.card').querySelector('.toggle-icon').textContent = '+';
+                }
+            });
 
-  // Předpokládejme, že chcete spustit animaci při dosažení určité scroll pozice
-  window.addEventListener('scroll', () => {
-    const triggerPosition = 1000; // například
-    if (window.scrollY > triggerPosition) {
-      whatText.classList.add('animate-title');
-    }
-  });
-
+            // Toggle the current card content and the active class
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                card.classList.remove('active');
+                content.style.maxHeight = null;
+                icon.textContent = '+';
+            } else {
+                content.classList.add('active');
+                card.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.textContent = '-';
+            }
+        });
+    });
 });
