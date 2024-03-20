@@ -42,9 +42,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Change cursor color on hover over section2
     const section2 = document.getElementById('section2');
+    const section4 = document.getElementById('section4');
     if (section2) {
         section2.addEventListener('mouseenter', () => cursor.classList.add('cursor-white'));
         section2.addEventListener('mouseleave', () => cursor.classList.remove('cursor-white'));
+    }
+    if (section4) {
+        section4.addEventListener('mouseenter', () => cursor.classList.add('cursor-white'));
+        section4.addEventListener('mouseleave', () => cursor.classList.remove('cursor-white'));
     }
 
 
