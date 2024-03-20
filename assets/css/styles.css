@@ -68,6 +68,19 @@ html {
   position: relative;
 }
 
+.sliding-content2 {
+  padding: 60px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  --tw-bg-opacity: 1;
+  background-color: rgb(8 8 7/var(--tw-bg-opacity));
+  color: white;
+  position: relative;
+}
+
 .fixed-content {
   height: 100vh;
   display: flex;
@@ -87,6 +100,7 @@ html {
   background: #f0e8d8;
   color: #333;
 }
+
 
 .dev {
   font-size: 10rem;
@@ -253,7 +267,7 @@ html {
   font-size: 1.7rem;
 }
 
-.what-text sup , .skills-text sup{
+.what-text sup , .skills-text sup, .about-text sup{
   font-family: 'IBM Plex Mono';
   font-size: 1.2rem;
   vertical-align: top;
@@ -355,4 +369,25 @@ html {
   100% {
     transform: translate3d(-100%, 0, 0); 
   }
+}
+
+.about-text{
+  font-size: 8vw;
+  font-family: "Roboto";
+  margin: 20px;
+  padding: 0;
+  font-weight: 700;
+  color: #a1a1a1;
+  opacity: 0; 
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease; 
+}
+
+
+.about {
+  max-width: 60%;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 1.7rem;
+  color: #707070;
 }
