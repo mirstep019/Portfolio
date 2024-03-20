@@ -1,7 +1,7 @@
 /* Roboto */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* IBM Plex Mono */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap");
 /* Inter */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 /* Monofett */
@@ -160,6 +160,7 @@ html {
   padding: 0;
   font-weight: 700;
   color: #C5B392;
+  margin-left: -10px;
 }
 
 .left-content {
@@ -178,34 +179,42 @@ html {
   padding: 0.5rem;
   border-radius: 20px; 
   color: #222222;
+  opacity: 0; /* Start with cards hidden */
+  transform: translateY(20px); /* Slightly move up */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for reveal */
 }
 
-.card-toggle {
-  display: block; 
-  width: 100%; 
-  cursor: none;
-}
-.card-title {
-  margin-bottom: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: none;
-  padding-left: 20px;
-  color: #C5B392;
+.reveal {
+  opacity: 1; /* Fully visible when revealed */
+  transform: translateY(0); /* Move back to original position */
 }
 
 .card-toggle h2{
   font-family: 'Inter';
   font-weight: 700;
   font-size: 2.3rem;
-  margin: 10px;
+  margin-left: 10px;
+}
+
+.card-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center; /* Zarovnání položek ve středu */
+}
+
+.card-title {
+  flex-grow: 1; /* Umožní nadpisu zabrat dostupný prostor */
+  margin: 0.7rem; /* Adjust or remove if not needed */
+  cursor: none;
+  padding-left: 20px;
+  color: #C5B392;
+  display: flex;
+  justify-content: space-between; /* Rozloží text a ikonu na opačné strany */
+  align-items: center; /* Centruje položky vertikálně */
 }
 
 .toggle-icon {
   font-size: 3rem;
-  padding-right: 40px;
 }
 
 .card-content {
@@ -224,4 +233,56 @@ html {
   color: #37210e;
 }
 
+.insight-text{
+  font-family: 'Inter';
+  font-weight: 500;
+  margin-top: -20px;
+  padding-left: 10px;
+  color: #5a5a5a;
+  font-size: 1.7rem;
+}
+
+.what-text sup , .skills-text sup{
+  font-family: 'IBM Plex Mono';
+  font-size: 1.2rem;
+  vertical-align: top;
+  margin-left: -12px;
+  color: #5a5a5a;
+}
+
+.thin-text {
+  font-weight: 300; 
+}
+
+.skills-text{
+  font-size: 8vw;
+  font-family: "Roboto";
+  margin: 20px;
+  padding: 0;
+  font-weight: 700;
+  color: #5b4531;
+}
+
+.skills-subtext {
+  font-family: 'Zen Tokyo Zoo';
+  font-size: 2rem;
+  color: #37210e;
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+}
+
+.skills-text {
+  margin-bottom: 0;
+}
+
+.skills-subtext {
+  margin-top: 0;
+  max-width: 70%; 
+  text-align: center; 
+}
 
