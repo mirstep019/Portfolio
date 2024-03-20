@@ -6,8 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Duplikace obsahu tickeru
     const ticker = document.getElementById('ticker-text');
+    const ticker2 = document.getElementById('ticker-skills');
     if (ticker) {
         ticker.innerHTML += ticker.innerHTML;
+    }
+    if (ticker2){
+        ticker2.innerHTML += ticker2.innerHTML;
     }
 
     // Cursor Animation

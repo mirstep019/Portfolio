@@ -62,7 +62,8 @@ html {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  background: black;
+  --tw-bg-opacity: 1;
+  background-color: rgb(8 8 7/var(--tw-bg-opacity));
   color: white;
   position: relative;
 }
@@ -72,6 +73,16 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  background: #f0e8d8;
+  color: #333;
+}
+.fixed-content2 {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 80px;
   flex-direction: column;
   background: #f0e8d8;
   color: #333;
@@ -261,12 +272,18 @@ html {
   padding: 0;
   font-weight: 700;
   color: #5b4531;
+  opacity: 0; 
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease; 
 }
 
 .skills-subtext {
   font-family: 'Zen Tokyo Zoo';
   font-size: 2rem;
   color: #37210e;
+  opacity: 0; 
+  transform: translateY(20px);
+  transition: opacity 3s ease, transform 3s ease; 
 }
 
 .heading-container {
@@ -276,6 +293,10 @@ html {
   text-align: center;
 }
 
+.reveal {
+  opacity: 1 !important; /* Plně viditelný, když je element v viewportu */
+  transform: translateY(0px) !important; /* Vrátíme na původní pozici */
+}
 .skills-text {
   margin-bottom: 0;
 }
@@ -286,3 +307,52 @@ html {
   text-align: center; 
 }
 
+
+
+.tickers-container {
+  position: relative; 
+  height: 400px; 
+  width: 100%;
+  overflow: hidden;
+}
+
+.ticker2 {
+  position: absolute;
+  width: 120%;
+  height: 10vh;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: #e1dbc5;
+  color: #37210e;
+  font-family: "IBM Plex Mono";
+  font-weight: 500;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  top: 285vh; 
+  transform: rotate(-17deg);
+}
+
+
+.ticker-skills{
+  position: absolute;
+  width: 120%;
+  animation: ticker 33s linear infinite;
+  animation-delay: -10s; 
+}
+
+.ticker-skills:hover, .ticker2:hover {
+  animation-play-state: paused;
+  background-color: #37210e;
+  color: #e1dbc5;
+}
+
+@keyframes ticker2 {
+  0% {
+    transform: translate3d(50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0); 
+  }
+}
