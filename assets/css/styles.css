@@ -26,6 +26,11 @@ html {
   cursor: none;
 }
 
+body::selection {
+  background-color: #000000;
+  color: #ffffff; 
+}
+
 [data-scroll-container] {
   height: auto;
 }
@@ -484,3 +489,20 @@ html {
   flex-basis: 40%; 
 }
 
+@keyframes bounceTwiceWaitThenRepeat {
+  0%, 100% { bottom: 15vh; }
+  10%, 20% { bottom: 14vh; } 
+  30%, 40% { bottom: 15vh; } 
+  50%, 60% { bottom: 14vh; } 
+  70% { bottom: 15vh; } 
+  80%, 90% { opacity: 1; } 
+}
+
+.mouse-icon {
+  position: absolute;
+  bottom: 15vh;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  animation: bounceTwiceWaitThenRepeat 3s infinite; 
+}
