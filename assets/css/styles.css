@@ -99,6 +99,7 @@ body::selection {
   background-color: black;
   color: white;
   position: relative;
+  padding: 4%;
 }
 
 .fixed-content {
@@ -412,7 +413,7 @@ body::selection {
 
 
 .about {
-  max-width: 65%;
+  width: 950px;
   text-align: center;
   font-family: "Roboto";
   font-size: 1.7rem;
@@ -422,6 +423,26 @@ body::selection {
   transform: translateY(20px);
   transition: opacity 2s ease, transform 2s ease; 
 }
+
+
+.arrow img{ 
+  height: 4vh;
+}
+.arrow{
+  margin-top: 4vw;
+  rotate: -44.5deg;
+}
+
+.arrow2 {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 20px 80px 20px;
+}
+.arrow2 img {
+  height: 4vw;
+}
+
+
 
 .contact-text-left{
   font-size: 8vw;
@@ -520,8 +541,29 @@ body::selection {
 }
 
 
+
+
 @media only screen and (max-width: 1024px) {
   /*.cursor {
     display: none;
   }*/
+}
+@media only screen and (max-width: 1440px) {
+  .contact-link {
+    font-size: 2.7rem;
+  }
+  .insight-text{
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (max-width: 1178px) {
+  .contact-link {
+    font-size: 2.3rem;
+  }
+  .card-toggle h2{
+    font-size: 1.9rem;
+  }
+  .insight-text{
+    font-size: 1.2rem;
+  }
 }
