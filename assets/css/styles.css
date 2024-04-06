@@ -57,11 +57,17 @@ body::selection {
   height: 90px;
   width: 90px;
   border: 2px solid #37210e;
+}
+
+.cursor.large-white {
+  height: 90px;
+  width: 90px;
+  border: 2px solid #dbdbdb;
 
 }
 
 .sliding-content {
-  padding: 60px;
+  padding: 5%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -85,11 +91,10 @@ body::selection {
 }
 
 .sliding-content2 {
-  padding: 60px;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: column;
   background-color: black;
   color: white;
@@ -143,18 +148,25 @@ body::selection {
   cursor: none;
 }
 
-.ms-logo {
+.logo-container {
   position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other content */
+  pointer-events: none; /* Allows clicks to pass through */
+}
+
+.ms-logo {
+  margin-top: 20px;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   font-family: "Monofett";
-  z-index: 1000;
   font-size: 1.4rem;
   color: #5b4531;
-}
-.ms-logo-white{
-  color: #725943;
+  pointer-events: auto; 
+  z-index: 1000;
 }
 
 .ticker {
@@ -464,7 +476,7 @@ body::selection {
 
 .contact-link {
   font-family: 'Inter';
-  font-size: 4rem;
+  font-size: 3.3rem;
   margin: 40px;
   color: #bbbbbb;
   cursor: none;
@@ -505,4 +517,11 @@ body::selection {
   transform: translateX(-50%);
   height: 80px;
   animation: bounceTwiceWaitThenRepeat 3s infinite; 
+}
+
+
+@media only screen and (max-width: 1024px) {
+  /*.cursor {
+    display: none;
+  }*/
 }

@@ -10,51 +10,51 @@ document.addEventListener('DOMContentLoaded', function () {
     if (ticker) {
         ticker.innerHTML += ticker.innerHTML;
     }
-    if (ticker2){
+    if (ticker2) {
         ticker2.innerHTML += ticker2.innerHTML;
     }
 
-    // Cursor Animation
-    const cursor = document.querySelector(".cursor");
-    let mouseX = 0, mouseY = 0;
-    document.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
+    // Conditional Cursor Animation based on viewport width
+    if (window.innerWidth > 1024) { // Custom cursor functionality for screens wider than 1024px
+        const cursor = document.querySelector(".cursor");
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
 
-    function animateCursor() {
-        const cursorX = mouseX;
-        const cursorY = mouseY;
+        function animateCursor() {
+            const cursorX = mouseX;
+            const cursorY = mouseY;
 
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
 
-        requestAnimationFrame(animateCursor);
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+
+        // Hover effects for cursor enlargement
+        document.querySelectorAll(".dev-logo, .skills-text, .ms-logo").forEach(item => {
+            item.addEventListener("mouseenter", () => cursor.classList.add("large"));
+            item.addEventListener("mouseleave", () => cursor.classList.remove("large"));
+        });
+        document.querySelectorAll(".what-text, .card, .ticker-skills, .about-text, .contact-text-left, .contact-text-right, .contact-link").forEach(item => {
+            item.addEventListener("mouseenter", () => cursor.classList.add("large-white"));
+            item.addEventListener("mouseleave", () => cursor.classList.remove("large-white"));
+        });
+
+        // Change cursor color on hover over sections
+        const sections = document.querySelectorAll('#section2, #section4, #section5');
+        sections.forEach(section => {
+            section.addEventListener('mouseenter', () => cursor.classList.add('cursor-white'));
+            section.addEventListener('mouseleave', () => cursor.classList.remove('cursor-white'));
+        });
     }
 
-    animateCursor();
-
-    // Hover effects for cursor enlargement
-    document.querySelectorAll(".dev-logo, .what-text").forEach(item => {
-        item.addEventListener("mouseenter", () => cursor.classList.add("large"));
-        item.addEventListener("mouseleave", () => cursor.classList.remove("large"));
-    });
-
-    // Change cursor color on hover over section2
-    const section2 = document.getElementById('section2');
-    const section4 = document.getElementById('section4');
-    if (section2) {
-        section2.addEventListener('mouseenter', () => cursor.classList.add('cursor-white'));
-        section2.addEventListener('mouseleave', () => cursor.classList.remove('cursor-white'));
-    }
-    if (section4) {
-        section4.addEventListener('mouseenter', () => cursor.classList.add('cursor-white'));
-        section4.addEventListener('mouseleave', () => cursor.classList.remove('cursor-white'));
-    }
-
-
+    // Card toggles functionality remains unchanged
     const cardToggles = document.querySelectorAll('[data-card] .card-toggle');
-
     cardToggles.forEach(function (toggle) {
         toggle.addEventListener('click', function () {
             const card = this.closest('.card');
