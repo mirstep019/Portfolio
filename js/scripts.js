@@ -1,7 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
     const scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true,
+        el: document.querySelector('[data-scroll-container]'),  // Kontejner pro scroll
+        smooth: true,  // Zapne smooth scrolling
+        direction: 'vertical'  // Nastaví vertikální scrollování
+    });
+
+    // Kontrola scrollování
+    scroll.on('scroll', (args) => {
+        const ticker = document.querySelector('.ticker-skills');
+        const scrollPosition = args.scroll.y;  // Získání vertikální pozice
+
+        // Nastavení horizontálního posunu tickeru
+        ticker.style.transform = `translate3d(${scrollPosition * -0.5}px, 0, 0)`;
     });
 
     // Duplikace obsahu tickeru

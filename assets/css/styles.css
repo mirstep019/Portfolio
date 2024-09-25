@@ -350,20 +350,11 @@ body::selection {
 }
 
 
-
-.tickers-container {
-  position: relative; 
-  height: 400px; 
-  width: 100%;
-  overflow: hidden;
-}
-
 .ticker2 {
   position: absolute;
   width: 120%;
   height: 10vh;
   white-space: nowrap;
-  overflow: hidden;
   background-color: #e1dbc5;
   color: #37210e;
   font-family: "IBM Plex Mono";
@@ -372,32 +363,30 @@ body::selection {
   display: flex;
   align-items: center;
   z-index: 100;
-  top: 285vh; 
-  transform: rotate(-17deg);
 }
 
-
-.ticker-skills{
-  position: absolute;
-  width: 120%;
-  animation: ticker 33s linear infinite;
-  animation-delay: -10s; 
+.tickers-container {
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
 }
 
-.ticker-skills:hover, .ticker2:hover {
-  animation-play-state: paused;
-  background-color: #37210e;
-  color: #e1dbc5;
+.ticker-skills {
+  display: inline-block;
+  white-space: nowrap;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
-@keyframes ticker2 {
-  0% {
-    transform: translate3d(50%, 0, 0);
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0); 
-  }
+.ticker-item {
+  display: inline-block;
+  padding-right: 50px;
+  font-size: 1.2rem;
+  font-family: 'IBM Plex Mono', monospace;
 }
+
 
 .about-text{
   font-size: 11rem;
@@ -626,6 +615,16 @@ body::selection {
 
 
 
+
+::selection {
+  background-color: #5b4531; 
+  color: #ffffff;            
+}
+
+::-moz-selection {
+  background-color: #5b4531; 
+  color: #ffffff;            
+}
 
 html.has-scroll-smooth {
   overflow: hidden; }
