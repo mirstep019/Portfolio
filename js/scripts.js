@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     const scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),  // Kontejner pro scroll
-        smooth: true,  // Zapne smooth scrolling
-        direction: 'vertical'  // Nastaví vertikální scrollování
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        getDirection: true,
+        getSpeed: true,
     });
+
+    scroll.update(); // Aktualizace po načtení
+
 
     // Kontrola scrollování
     scroll.on('scroll', (args) => {
@@ -17,11 +21,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Duplikace obsahu tickeru
     const ticker = document.getElementById('ticker-text');
     const ticker2 = document.getElementById('ticker-skills');
+    const ticker3 = document.getElementById('ticker-skills2');
+
     if (ticker) {
         ticker.innerHTML += ticker.innerHTML;
     }
     if (ticker2) {
         ticker2.innerHTML += ticker2.innerHTML;
+    }
+    if (ticker3) {
+        ticker3.innerHTML += ticker3.innerHTML;
     }
 
     // Conditional Cursor Animation based on viewport width
@@ -50,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
             item.addEventListener("mouseenter", () => cursor.classList.add("large"));
             item.addEventListener("mouseleave", () => cursor.classList.remove("large"));
         });
-        document.querySelectorAll(".what-text, .card, .ticker-skills, .about-text, .contact-text-left, .contact-text-right, .contact-link").forEach(item => {
+        document.querySelectorAll(".what-text, .card, .about-text, .contact-text-left, .contact-text-right, .contact-link").forEach(item => {
             item.addEventListener("mouseenter", () => cursor.classList.add("large-white"));
             item.addEventListener("mouseleave", () => cursor.classList.remove("large-white"));
         });
