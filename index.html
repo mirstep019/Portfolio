@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="assets/css/styles.css">
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700&f[]=switzer@300,400,600&f[]=gambarino@400&f[]=general-sans@300,400,600,700&display=swap" rel="stylesheet">
   <title>Miroslav Stepanek - Web Portfolio</title>
 </head>
 <body data-scroll-container>
@@ -17,11 +17,16 @@
 
   <!-- Section 1: Introduction -->
   <div id="section1" class="fixed-content" data-scroll-section>
+    <div class="background-video-wrapper">
+      <video autoplay muted loop id="backgroundVideo">
+        <source src="assets/videos/light-effects.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
     <div class="dev-logo" data-scroll data-scroll-speed="2" data-scroll-delay="0.4">
       <h1 class="dev">DEV.</h1>
-      <h2 class="barcode">WEB APP SEO</h2>
+      <h2 class="barcode">&nbsp; WEB APP SEO &nbsp;</h2>
     </div>
-    <img src="assets/images/mouseIcon.svg" alt="mouse-icon" class="mouse-icon">
     <div class="ticker">
       <div class="ticker-text" id="ticker-text">
         <span class="ticker-item">AVAILABLE FOR WORK JANUARY 2025</span>
@@ -36,7 +41,8 @@
         <span class="ticker-item">AVAILABLE FOR WORK JANUARY 2025</span>
       </div>
     </div>
-  </div>
+</div>
+
 
   <!-- Section 2: What I Do -->
   <div id="section2" class="sliding-content" data-scroll-section>
@@ -179,10 +185,42 @@
   <!-- JavaScript Files -->
   <script defer src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   <script defer src="js/scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
     window.addEventListener('load', function() {
       document.body.classList.add('loaded');
     });
-  </script>
+    // // Inicializace scény, kamery a rendereru
+    // const scene = new THREE.Scene();
+    // const camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 0.1, 1000);
+    // const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('globeCanvas'), alpha: true });
+    // renderer.setSize(window.innerWidth, window.innerHeight);
+    // camera.position.z = 4;
+  
+    // // Vytvoření drátěného globu
+    // const geometry = new THREE.SphereGeometry(1.5, 14, 14);
+    // const material = new THREE.MeshBasicMaterial({
+    //   color: 0xffffff,
+    //   wireframe: true
+    // });
+    // const globe = new THREE.Mesh(geometry, material);
+    // scene.add(globe);
+  
+    // // Animace rotace globu
+    // function animate() {
+    //   requestAnimationFrame(animate);
+    //   globe.rotation.y += 0.005; // Měníme rotaci globu
+    //   renderer.render(scene, camera);
+    // }
+  
+    // animate();
+  
+    // // Zajištění přizpůsobení canvas velikosti při změně okna
+    // window.addEventListener('resize', () => {
+    //   renderer.setSize(window.innerWidth, window.innerHeight);
+    //   camera.aspect = window.innerWidth / window.innerHeight;
+    //   camera.updateProjectionMatrix();
+    // });
+  </script>  
 </body>
 </html>

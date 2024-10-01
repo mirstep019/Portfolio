@@ -65,11 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Change cursor color on hover over sections
+        /*
         const sections = document.querySelectorAll('#section2, #section4, #section5');
         sections.forEach(section => {
             section.addEventListener('mouseenter', () => cursor.classList.add('cursor-white'));
             section.addEventListener('mouseleave', () => cursor.classList.remove('cursor-white'));
         });
+        */
     }
 
     // Card toggles functionality remains unchanged

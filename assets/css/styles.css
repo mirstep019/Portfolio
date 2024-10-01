@@ -123,12 +123,14 @@ body::selection {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #37210e;
+  border: 2px solid #fff;
   left: 0;
   transform: translate(-50%, -50%);
   pointer-events: none;
   transition: width 300ms, height 300ms;
   z-index: 999;
+  mix-blend-mode: difference;
+
 }
 
 @keyframes slideIn {
@@ -137,7 +139,7 @@ body::selection {
     opacity: 0;
   }
   100% {
-    top: 20px;
+    top: 30px;
     opacity: 1;
   }
 }
@@ -151,9 +153,11 @@ body::selection {
   opacity: 0; /* Skryto při načtení */
   font-family: "Monofett";
   font-size: 1.7rem;
-  color: #5b4531;
+  /* color: #5b4531; */
+  color: #fff;
   pointer-events: auto;
   z-index: 1000;
+  mix-blend-mode: difference;
 }
 
 body.loaded .ms-logo {
@@ -161,22 +165,13 @@ body.loaded .ms-logo {
 }
 
 
-
-.cursor-white {
-  border: 2px solid #dbdbdb;
-}
-
 .cursor.large {
   height: 90px;
   width: 90px;
-  border: 2px solid #37210e;
+  border: 2px solid #fff;
+  mix-blend-mode: difference;
 }
 
-.cursor.large-white {
-  height: 90px;
-  width: 90px;
-  border: 2px solid #dbdbdb;
-}
 
 .sliding-content {
   padding: 5%;
@@ -212,7 +207,7 @@ body.loaded .ms-logo {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: #f0e8d8;
+  /* background: #f0e8d8; */
   color: #333;
 }
 .fixed-content2 {
@@ -231,9 +226,10 @@ body.loaded .ms-logo {
 
 
 .dev {
-  font-size: 10rem;
-  font-family: "Inria Serif";
-  margin: 0;
+  font-size: 20vh;
+  /* font-family: "Inria Serif"; */
+  font-family: 'Clash Display', sans-serif;
+  margin: 0px;
   padding: 0;
   font-weight: 500;
 }
@@ -243,7 +239,7 @@ body.loaded .ms-logo {
   font-size: 3.1rem;
   margin: 0;
   padding: 0;
-  color: #37210e;
+  /* color: #37210e; */
   font-weight: 600;
 }
 
@@ -266,8 +262,9 @@ body.loaded .ms-logo {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #37210e;
   cursor: none;
+  color: #e8e8e8;
+  mix-blend-mode: difference;
 }
 
 .logo-container {
@@ -279,6 +276,30 @@ body.loaded .ms-logo {
   pointer-events: none; /* Allows clicks to pass through */
 }
 
+.background-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Zajištění, že video je v pozadí */
+}
+
+#backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Zajištění, že video vyplní celou sekci */
+  z-index: -1;
+  filter: brightness(0.5); /* Přidání jemného ztmavení videa */
+}
+
 
 .ticker {
   position: absolute;
@@ -287,10 +308,12 @@ body.loaded .ms-logo {
   height: 5vh;
   white-space: nowrap;
   overflow: hidden;
-  background-color: #e1dbc5;
-  color: #37210e;
+  /* background-color: #e1dbc5;
+  color: #37210e; */
+  background-color: #4f4f4f74;
+  color: #fff;
   font-family: "IBM Plex Mono";
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -320,11 +343,11 @@ body.loaded .ms-logo {
 
 .what-text {
   font-size: 11rem;
-  font-family: "Roboto";
+  font-family: 'General Sans', sans-serif;
   margin: 0;
   padding: 0;
-  font-weight: 700;
-  color: #c5b392;
+  font-weight: 600;
+  color: #ac9b7b;
   margin-left: -10px;
 }
 
@@ -357,7 +380,7 @@ body.loaded .ms-logo {
 
 
 .card-toggle h2 {
-  font-family: "Inter";
+  font-family: 'General Sans', sans-serif;
   font-weight: 700;
   font-size: 2.3rem;
   margin-left: 10px;
@@ -374,7 +397,7 @@ body.loaded .ms-logo {
   margin: 0.7rem; /* Adjust or remove if not needed */
   cursor: none;
   padding-left: 20px;
-  color: #c5b392;
+  color: #ac9b7b;
   display: flex;
   justify-content: space-between; /* Rozloží text a ikonu na opačné strany */
   align-items: center; /* Centruje položky vertikálně */
@@ -386,9 +409,9 @@ body.loaded .ms-logo {
 
 .card-content {
   margin-top: 0;
-  font-family: "Inter";
-  font-weight: 500;
-  font-size: 1.2rem;
+  font-family: 'General Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
   padding-left: 30px;
   padding-right: 20px;
   overflow: hidden;
@@ -402,12 +425,13 @@ body.loaded .ms-logo {
 }
 
 .insight-text {
-  font-family:'Switzer', sans-serif;
-  font-weight: 800;
+  font-family: 'General Sans', sans-serif;
+  font-weight: 400;
   margin-top: -20px;
-  padding-left: 10px;
+  padding-left: 50px;
   color: #5a5a5a;
-  font-size: 1.7rem;
+  font-size: 1.72rem;
+  text-transform: uppercase;
 }
 
 .what-text sup,
@@ -666,14 +690,6 @@ body.loaded .ms-logo {
   }
 }
 
-.mouse-icon {
-  position: absolute;
-  bottom: 15vh;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 80px;
-  animation: bounceTwiceWaitThenRepeat 3s infinite;
-}
 
 @media only screen and (max-width: 2050px) {
   .what-text {
