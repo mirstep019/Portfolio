@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
             item.addEventListener("mouseleave", () => cursor.classList.remove("large"));
         });
         document.querySelectorAll(".what-text, .card, .about-text, .contact-text-left, .contact-text-right, .contact-link").forEach(item => {
-            item.addEventListener("mouseenter", () => cursor.classList.add("large-white"));
-            item.addEventListener("mouseleave", () => cursor.classList.remove("large-white"));
+            item.addEventListener("mouseenter", () => cursor.classList.add("large"));
+            item.addEventListener("mouseleave", () => cursor.classList.remove("large"));
         });
 
         // Change cursor color on hover over sections
