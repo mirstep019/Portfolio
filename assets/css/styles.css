@@ -118,6 +118,40 @@ body::selection {
   height: auto;
 }
 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #060606; /* nebo jiná barva pozadí */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#preloader-text {
+  font-size: 2em; /* upravte podle potřeby */
+  font-weight: 300;
+  transition: all 0.3s ease-in-out;
+  white-space: pre; /* umožňuje zachovat mezery v textu */
+  font-family: "IBM Plex Mono";
+  color: rgb(222, 233, 225);
+}
+
+
+.preloader-letter {
+  opacity: 0;
+  display: inline-block;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.space {
+  width: 0.5rem; /* Zajištění mezery mezi jménem a příjmením */
+}
+
 .cursor {
   position: fixed;
   width: 40px;
@@ -154,7 +188,7 @@ body::selection {
   font-family: "Monofett";
   font-size: 1.7rem;
   /* color: #5b4531; */
-  color: #fff;
+  color: #acacac;
   pointer-events: auto;
   z-index: 1000;
   mix-blend-mode: difference;
@@ -243,12 +277,40 @@ body.loaded .ms-logo {
   font-weight: 600;
 }
 
+/* Přidáme animaci pro reveal z pravé strany */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%); /* Start mimo obrazovku (zprava) */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* Konečná pozice */
+    opacity: 1;
+  }
+}
+
+.scrolldown {
+  font-size: 1.4rem;
+  color: #fff;
+  mix-blend-mode: difference;
+  display: flex;
+  position: absolute;
+  bottom: 8rem;
+  right: 4rem;
+  font-family: "IBM Plex Mono";
+  font-weight: 400;
+  opacity: 0; /* Start hidden */
+  animation: slideInRight 1.2s ease-out forwards; /* Slide-in effect */
+  animation-delay: 1s; /* Zpoždění animace po načtení stránky */
+}
+
+
 .dev,
 .barcode {
   opacity: 0;
   transform: rotateX(50deg); /* Startovně otočeno nahoru */
   transition: transform 1s ease-out, opacity 1s ease-out; /* Plynulá animace */
-  transition-delay: 1s; /* Zpoždění po animaci .ms-logo */
+  transition-delay: 1.15s; /* Zpoždění po animaci .ms-logo */
 }
 
 .is-inview .dev,
@@ -263,7 +325,7 @@ body.loaded .ms-logo {
   align-items: center;
   justify-content: center;
   cursor: none;
-  color: #e8e8e8;
+  color: #c3c3c3;
   mix-blend-mode: difference;
 }
 
@@ -433,6 +495,18 @@ body.loaded .ms-logo {
   font-size: 1.72rem;
   text-transform: uppercase;
 }
+
+.what-text, .insight-text {
+  opacity: 0;
+  transform: translateY(60px); /* Start moved up */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.is-inview .what-text, .is-inview .insight-text {
+  opacity: 1;
+  transform: translateY(0); /* Move to normal position */
+}
+
 
 .what-text sup,
 .skills-text sup,
@@ -625,8 +699,8 @@ body.loaded .ms-logo {
 .custom-hr {
   width: 0;
   border: none;
-  height: 5px;
-  background-color: #1a1a1a;
+  height: 4px;
+  background-color: #c5b392;
   margin: 0;
   padding: 0;
   transition: width 1s ease-out;
