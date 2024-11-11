@@ -215,6 +215,11 @@ body.loaded .ms-logo {
   justify-content: space-between;
   flex-direction: row;
   color: white;
+  background-image: url('https://wallpapers.com/images/featured-full/pure-black-background-py9pa0f1mlsscm9s.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
 }
 .sliding-content2 {
   height: 100vh;
@@ -224,7 +229,11 @@ body.loaded .ms-logo {
   flex-direction: column;
   color: white;
   padding: 4%;
+  /* background-image: url('../images/sliding.jpg');
+  background-position: 50% 0%;
+  background-repeat: no-repeat; */
 }
+
 .sliding-content3 {
   height: 100vh;
   display: flex;
@@ -234,7 +243,11 @@ body.loaded .ms-logo {
   color: white;
   position: relative;
   padding: 0;
+  /* background-image: url('../images/sliding.jpg');
+  background-position: 50% 57.5%;
+  background-repeat: no-repeat; */
 }
+
 .fixed-content {
   height: 100vh;
   display: flex;
@@ -490,7 +503,7 @@ body.loaded .ms-logo {
   font-family: 'General Sans', sans-serif;
   font-weight: 400;
   margin-top: -20px;
-  padding-left: 50px;
+  padding-left: 17px;
   color: #5a5a5a;
   font-size: 1.72rem;
   text-transform: uppercase;
@@ -635,7 +648,7 @@ body.loaded .ms-logo {
 }
 
 .about {
-  width: 950px;
+  max-width: 950px;
   text-align: center;
   font-family: 'Switzer', sans-serif;
   font-size: 1.7rem;
@@ -820,10 +833,13 @@ body.loaded .ms-logo {
     font-size: 2.3rem;
   }
   .card-toggle h2 {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
   }
   .insight-text {
     font-size: 1.2rem;
+  }
+  .what-text{
+    font-size: 6rem;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -831,11 +847,39 @@ body.loaded .ms-logo {
     display: none;
   }
 
+  .sliding-content{
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .right-content{
+    margin: auto 100px;
+  }
+
+
+  .infoul{
+    font-size: 3.3vw;
+  }
+  .contact-text-left{
+    font-size: 7.2vw;
+  }
+
+  .contact-link {
+    font-size: 3.5vw;
+  }
+
   /* Re-enable the default cursor */
   body,
   html {
     cursor: auto;
   }
+
+  .ticker2{
+    font-size: 1.7rem;
+  }
+
+
+
 }
 
 ::selection {
