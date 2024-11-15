@@ -1,23 +1,78 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const scroll = new LocomotiveScroll({
-    el: document.querySelector("[data-scroll-container]"),
+  // Initialize Lenis for smooth scrolling
+  const lenis = new Lenis({
     smooth: true,
-    getDirection: true,
-    getSpeed: true,
+    lerp: 0.1, // Adjust for smoothness
   });
 
-  scroll.update(); // Aktualizace po načtení
+  // Select all navbar links
+  document.querySelectorAll(".links a").forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault(); // Prevent default anchor click behavior
 
-  // Kontrola scrollování
-  scroll.on("scroll", (args) => {
-    const ticker = document.querySelector(".ticker-skills");
-    const scrollPosition = args.scroll.y; // Získání vertikální pozice
+      // Get the target section ID from the href
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
 
-    // Nastavení horizontálního posunu tickeru
-    ticker.style.transform = `translate3d(${scrollPosition * -0.5}px, 0, 0)`;
+      if (targetElement) {
+        // Smoothly scroll to the target section using Lenis
+        lenis.scrollTo(targetElement);
+      }
+    });
   });
 
-  // Duplikace obsahu tickeru
+  const elementsToReveal = document.querySelectorAll(".reveal-on-scroll");
+
+  const options = {
+    threshold: 0.1, // Trigger when 10% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("reveal"); // Add the reveal class when in view
+        observer.unobserve(entry.target); // Stop observing once revealed
+      }
+    });
+  }, options);
+
+  elementsToReveal.forEach((element) => {
+    observer.observe(element); // Start observing each element
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Target logo element
+  const devLogo = document.getElementById("devLogo");
+  if (!devLogo) {
+    console.error('Element with ID "devLogo" not found.');
+    return;
+  }
+
+  // Scaling parameters
+  const initialScale = 1; // Starting scale
+  const finalScale = 0.1; // Final scale when it reaches the smallest size
+
+  // Distance for full scaling effect
+  const maxScroll = window.innerHeight * 0.7; // Adjust to control speed
+
+  // Lenis scroll event
+  lenis.on("scroll", ({ scroll }) => {
+    const scrollRatio = Math.min(scroll / maxScroll, 1); // Clamped ratio
+
+    // Calculate the scale based on the scroll position
+    const currentScale =
+      initialScale - (initialScale - finalScale) * scrollRatio;
+
+    // Apply the scaling transformation smoothly
+    devLogo.style.transform = `scale(${currentScale})`;
+  });
+
+  // Ticker functionality
   const ticker = document.getElementById("ticker-text");
   const ticker2 = document.getElementById("ticker-skills");
   const ticker3 = document.getElementById("ticker-skills2");
@@ -57,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hover effects for cursor enlargement
     document
-      .querySelectorAll(".dev-logo, .skills-text, .ms-logo")
+      .querySelectorAll(".dev-logo, .skills-text, .navbar")
       .forEach((item) => {
         item.addEventListener("mouseenter", () =>
           cursor.classList.add("large")
@@ -80,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  // Card toggles functionality remains unchanged
+  // Card toggles functionality
   const cardToggles = document.querySelectorAll("[data-card] .card-toggle");
   cardToggles.forEach(function (toggle) {
     toggle.addEventListener("click", function () {
@@ -113,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Preloader animation
   const preloader = document.getElementById("preloader");
   const preloaderText = document.getElementById("preloader-text");
 
@@ -121,62 +177,62 @@ document.addEventListener("DOMContentLoaded", function () {
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$@#&ß";
 
-  // Nastavení proměnných pro úpravu rychlosti a délky animací
-  const initialScrambleDuration = 400; // Doba, po kterou se zobrazí scrambled text (v ms)
-  const unscrambleDelay = 50; // Zpoždění mezi rozkódováním každého písmene (v ms)
+  // Animation settings
+  const initialScrambleDuration = 300; // Duration to show scrambled text (ms)
+  const unscrambleDelay = 50; // Delay between unscrambling each letter (ms)
 
-  // Proměnné pro zkracování na 'DEV.'
-  const devScrambleDelay = 40; // Zpoždění mezi scramblingem každého písmene při zkracování (v ms)
-  const devScrambleTimes = 5; // Počet scramblingů pro každé písmeno při zkracování
-  const devShortenDelay = 80; // Zpoždění mezi odstraněním písmen při zkracování (v ms)
+  // Variables for shortening to 'DEV.'
+  const devScrambleDelay = 40; // Delay between scrambling each letter when shortening (ms)
+  const devScrambleTimes = 5; // Number of scrambles for each letter when shortening
+  const devShortenDelay = 40; // Delay between removing letters when shortening (ms)
 
   let currentText = [];
 
-  // Funkce pro zpoždění
+  // Delay function
   function delay(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  // Generování scrambled verze 'Miroslav Stepanek' se zachováním mezer
+  // Generate scrambled version of 'Miroslav Stepanek' while preserving spaces
   function getScrambledText(text) {
     return text.split("").map((char) => {
-      if (char === " ") return " "; // Zachovat mezery
+      if (char === " ") return " "; // Preserve spaces
       return characters[Math.floor(Math.random() * characters.length)];
     });
   }
 
   async function startAnimation() {
-    // Vytvoření počátečního scrambled textu
+    // Create initial scrambled text
     currentText = getScrambledText(initialWord);
     preloaderText.innerHTML = currentText.join("");
 
-    // Zobrazení scrambled textu po dobu initialScrambleDuration
+    // Show scrambled text for initialScrambleDuration
     await delay(initialScrambleDuration);
 
-    // Postupné rozkódování písmen na správná písmena
+    // Gradually unscramble letters to correct letters
     for (let i = 0; i < initialWord.length; i++) {
       if (initialWord[i] !== " ") {
-        // Přeskočit mezery
+        // Skip spaces
         await unscrambleLetter(i);
       }
     }
 
-    // Zobrazení kompletního slova na 1 sekundu
+    // Display the complete word for 1 second
     await delay(1500);
 
-    // Scrambling písmen zleva doprava při zkracování na 'DEV.'
+    // Scramble letters from left to right when shortening to 'DEV.'
     const scramblePromises = [];
     for (let i = 0; i < currentText.length; i++) {
       if (currentText[i] !== " ") {
-        // Přeskočit mezery
+        // Skip spaces
         scramblePromises.push(scrambleLetter(i, i * devScrambleDelay));
       }
     }
     await Promise.all(scramblePromises);
 
-    // Přeměna na finální text 'DEV.'
+    // Transform to the final text 'DEV.'
     for (let i = currentText.length - 1; i >= finalWord.length; i--) {
-      // Odstranění písmen z konce (přeskočit mezery)
+      // Remove letters from the end (skip spaces)
       if (currentText[i] !== " ") {
         currentText.splice(i, 1);
         preloaderText.innerHTML = currentText.join("");
@@ -184,20 +240,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Nahrazení prvních písmen písmeny z 'DEV.'
+    // Replace the first letters with letters from 'DEV.'
     for (let i = 0; i < finalWord.length; i++) {
       currentText[i] = finalWord[i];
       preloaderText.innerHTML = currentText.join("");
       await delay(devShortenDelay);
     }
 
-    // Krátké zpoždění a skrytí preloaderu
+    // Short delay and hide preloader
     await delay(500);
     hidePreloader();
   }
 
   async function unscrambleLetter(index) {
-    // Nahrazení náhodného znaku správným písmenem
+    // Replace random character with the correct letter
     currentText[index] = initialWord[index];
     preloaderText.innerHTML = currentText.join("");
     await delay(unscrambleDelay);
@@ -212,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
       preloaderText.innerHTML = currentText.join("");
       await delay(devScrambleDelay);
     }
-    // Po scramblingu může zůstat náhodný znak nebo můžete vrátit původní znak
+    // After scrambling, you can keep a random character or set it to the original character
   }
 
   function hidePreloader() {

@@ -12,33 +12,44 @@
   <title>Miroslav Stepanek - Web Portfolio</title>
 </head>
 
-<body data-scroll-container>
-
+<body>
   <!-- Preloader -->
-   <div id="preloader">
+  <div id="preloader">
     <div id="preloader-text">Miroslav Stepanek</div>
-  </div> 
+  </div>
 
   <!-- Custom Cursor -->
   <div class="cursor"></div>
 
-  <!-- Logo -->
-  <div class="ms-logo">MIROSLAV STEPANEK</div>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-section">
+    </div>
+    <div class="links">
+      <a href="#section4">ABOUT</a>
+      <a href="#section2">WHAT</a>
+      <a href="#section3">SKILLS</a>
+      <a href="#section5">CONTACT</a>
+    </div>
+  </div>
 
-  <!-- Section 1: Introduction -->
-  <div id="section1" class="fixed-content" data-scroll-section>
+  <!-- Section 1 -->
+  <div id="section1" class="fixed-content">
     <div class="background-video-wrapper">
       <video autoplay muted loop id="backgroundVideo">
         <source src="assets/videos/light-effects.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        Váš prohlížeč nepodporuje video tag.
       </video>
     </div>
-    <div class="dev-logo" data-scroll data-scroll-speed="2" data-scroll-delay="0.4">
-      <h1 class="dev">DEV.</h1>
-      <h2 class="barcode">&nbsp; WEB APP SEO &nbsp;</h2>
-    </div>
-    <span data-card data-scroll data-scroll-class="reveal" data-scroll-offset="200" class="scrolldown">\\ scroll down
-      //</span>
+      <div class="dev-logo" id="devLogo" href="#section1">
+        <h1 class="dev">DEV.</h1>
+      </div>
+
+    <div id="live-clock" class="live-clock"></div>
+    <h2 class="barcode">&nbsp; WEB APP SEO &nbsp;</h2>
+    <span class="scrolldown">
+      \\ scroll down //
+    </span>
     <div class="ticker">
       <div class="ticker-text" id="ticker-text">
         <span class="ticker-item">AVAILABLE FOR WORK JANUARY 2025</span>
@@ -55,57 +66,69 @@
     </div>
   </div>
 
+<!-- Section 4: About Me -->
+<div id="section4" class="sliding-content2">
+  <h1 class="about-text reveal-on-scroll">
+    <sup>(1)</sup>ABOUT ME.
+  </h1>
+  <div class="about reveal-on-scroll">
+    <p>
+      Hello! My name is <strong>Miroslav Stepanek</strong>. I’m a web developer, designer, and marketing student at the Technical University, with a diverse skill set spanning various industries. Beyond my professional pursuits, I have spent over 12 years in professional sports. Now, I’m channeling my creativity and expertise into a new passion—helping others realize their dreams and ideas.
+    </p>
+  </div>
+  <div class="arrow">
+    <img src="assets/images/arrow.png" alt="arrow-icon">
+  </div>
+  <img style="height: 8vh; position: absolute; left: 5%;" src="/assets/images/globe.png">
+  <img style="height: 8vh; position: absolute; right: 5%;" src="/assets/images/globe.png">
+</div>
 
-  <!-- Section 2: What I Do -->
-  <div id="section2" class="sliding-content" data-scroll-section>
-    <div class="left-content">
-      <h1 class="what-text" data-scroll data-scroll-class="reveal" data-scroll-offset="200" data-scroll-repeat="true">
-        <sup>(1)</sup>WHAT I DO
-      </h1>
-      <h2 class="insight-text" data-scroll data-scroll-class="reveal" data-scroll-offset="210"
-        data-scroll-repeat="true">
-        Discover How I Can Help You
-      </h2>
+<!-- Section 2: What I Do -->
+<div id="section2" class="sliding-content">
+  <div class="left-content">
+    <h1 class="what-text reveal-on-scroll">
+      <sup>(2)</sup>WHAT I DO
+    </h1>
+    <h2 class="insight-text reveal-on-scroll">
+      Discover How I Can Help You
+    </h2>
+  </div>
+  <div class="right-content">
+    <!-- Card 1 -->
+    <div class="card reveal-on-scroll" data-card>
+      <div class="card-toggle">
+        <h2 class="card-title">Web Development <span class="toggle-icon">+</span></h2>
+      </div>
+      <div class="card-content">
+        <p>I craft unique and aesthetically pleasing websites tailored to your needs, focusing on intuitive UI and seamless UX for the best user experience.</p>
+      </div>
     </div>
-    <div class="right-content">
-      <!-- Card 1 -->
-      <div class="card" data-card data-scroll data-scroll-class="reveal" data-scroll-offset="200">
-        <div class="card-toggle">
-          <h2 class="card-title">Web Development <span class="toggle-icon">+</span></h2>
-        </div>
-        <div class="card-content">
-          <p>I craft unique and aesthetically pleasing websites tailored to your needs, focusing on intuitive UI and
-            seamless UX for the best user experience.</p>
-        </div>
+    <!-- Card 2 -->
+    <div class="card reveal-on-scroll" data-card>
+      <div class="card-toggle">
+        <h2 class="card-title">App Development <span class="toggle-icon">+</span></h2>
       </div>
-      <!-- Card 2 -->
-      <div class="card" data-card data-scroll data-scroll-class="reveal" data-scroll-offset="210">
-        <div class="card-toggle">
-          <h2 class="card-title">App Development <span class="toggle-icon">+</span></h2>
-        </div>
-        <div class="card-content">
-          <p>I develop innovative mobile applications primarily for iOS platforms, bringing your ideas to life on mobile
-            devices.</p>
-        </div>
+      <div class="card-content">
+        <p>I develop innovative mobile applications primarily for iOS platforms, bringing your ideas to life on mobile devices.</p>
       </div>
-      <!-- Card 3 -->
-      <div class="card" data-card data-scroll data-scroll-class="reveal" data-scroll-offset="220">
-        <div class="card-toggle">
-          <h2 class="card-title">SEO <span class="toggle-icon">+</span></h2>
-        </div>
-        <div class="card-content">
-          <p>I enhance your online presence by optimizing your website for search engines, helping your business reach a
-            wider audience.</p>
-        </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="card reveal-on-scroll" data-card>
+      <div class="card-toggle">
+        <h2 class="card-title">SEO <span class="toggle-icon">+</span></h2>
+      </div>
+      <div class="card-content">
+        <p>I enhance your online presence by optimizing your website for search engines, helping your business reach a wider audience.</p>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Section 3: Skills -->
-  <div id="section3" class="fixed-content2" data-scroll-section>
-    <div class="ticker2 tickers-container" data-scroll-ignore>
-      <div class="ticker-skills" id="ticker-skills">
-        <span class="ticker-item">HTML</span>
+<!-- Section 3: Skills -->
+<div id="section3" class="fixed-content2">
+  <div class="ticker2 tickers-container">
+    <div class="ticker-skills" id="ticker-skills">
+      <span class="ticker-item">HTML</span>
         <span class="ticker-item">CSS</span>
         <span class="ticker-item">PHP</span>
         <span class="ticker-item">C#</span>
@@ -128,15 +151,14 @@
       </div>
     </div>
     <div class="heading-container">
-      <h1 class="skills-text" data-scroll data-scroll-class="reveal" data-scroll-delay="0.3" data-scroll-repeat="false">
-        <sup>(2)</sup><span class="thin-text">MY</span> SKILLS.
+      <h1 class="skills-text reveal-on-scroll">
+        <sup>(3)</sup><span class="thin-text">MY</span> SKILLS.
       </h1>
-      <p class="skills-subtext" data-scroll data-scroll-class="reveal" data-scroll-delay="0.8"
-        data-scroll-repeat="false">
+      <p class="skills-subtext reveal-on-scroll">
         CREATIONS THAT HELP ME CREATE NEW CREATIONS
       </p>
     </div>
-    <div class="ticker2 tickers-container" data-scroll-ignore>
+    <div class="ticker2 tickers-container">
       <div class="ticker-skills2" id="ticker-skills2">
         <span class="ticker-item">HTML</span>
         <span class="ticker-item">CSS</span>
@@ -162,23 +184,6 @@
     </div>
   </div>
 
-  <!-- Section 4: About Me -->
-  <div id="section4" class="sliding-content2" data-scroll-section>
-    <h1 class="about-text" data-scroll data-scroll-class="reveal" data-scroll-delay="0.3" data-scroll-repeat="false">
-      <sup>(3)</sup>ABOUT ME.
-    </h1>
-    <div class="about" data-scroll data-scroll-class="reveal" data-scroll-delay="0.5" data-scroll-repeat="false">
-      <p>
-        Hello! My name is <strong>Miroslav Stepanek</strong>. I’m a web developer, designer, and marketing student at
-        the Technical University, with a diverse skill set spanning various industries. Beyond my professional pursuits,
-        I have spent over 12 years in professional sports. Now, I’m channeling my creativity and expertise into a new
-        passion—helping others realize their dreams and ideas.
-      </p>
-    </div>
-    <div class="arrow">
-      <img src="assets/images/arrow.png" alt="arrow-icon">
-    </div>
-  </div>
 
   <!-- Section 5: Contact -->
   <div id="section5" class="sliding-content3" data-scroll-section>
@@ -203,12 +208,45 @@
   </div>
 
   <!-- JavaScript Files -->
-  <script defer src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <!-- HTML (na konci těla stránky) -->
+  <script defer src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>   
   <script defer src="js/scripts.js"></script>
   <script>
-    window.addEventListener('load', function () {
-      document.body.classList.add('loaded');
+    window.addEventListener("load", function () {
+      // Hide the preloader if everything is loaded
+      document.body.classList.add("loaded");
+      setTimeout(hidePreloader, 500);  // Delay for effect
     });
+
+    function hidePreloader() {
+      const preloader = document.getElementById("preloader");
+      preloader.style.transition = "opacity 0.5s ease";
+      preloader.style.opacity = "0";
+      setTimeout(() => preloader.remove(), 500);
+    }
+
+    function updateClock() {
+      const clockElement = document.getElementById('live-clock');
+      const now = new Date();
+
+      // Formátování času
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+
+      // Zobrazení času ve formátu HH:MM:SS
+      const currentTime = `${hours}:${minutes}:${seconds} CET`;
+
+      // Aktualizace obsahu elementu
+      clockElement.textContent = currentTime;
+    }
+
+    // Aktualizace času při načtení stránky
+    updateClock();
+
+    // Aktualizace času každou sekundu
+    setInterval(updateClock, 1000);
+
   </script>
 
 </body>
