@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Distance for full scaling effect
   const maxScroll = window.innerHeight * 0.7; // Adjust to control speed
 
-  // Lenis scroll event
-  lenis.on("scroll", ({ scroll }) => {
+  // Function to update logo based on scroll position
+  function updateLogo(scroll) {
     const scrollRatio = Math.min(scroll / maxScroll, 1); // Clamped ratio
 
     // Calculate the scale based on the scroll position
@@ -70,7 +70,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Apply the scaling transformation smoothly
     devLogo.style.transform = `scale(${currentScale})`;
+  }
+
+  // Initial update on page load
+  updateLogo(lenis.scroll);
+
+  // Lenis scroll event
+  lenis.on("scroll", ({ scroll }) => {
+    updateLogo(scroll);
   });
+
+
+
+
+  
 
   // Ticker functionality
   const ticker = document.getElementById("ticker-text");

@@ -195,7 +195,7 @@ body.loaded .navbar {
   flex-direction: column;
   color: white;
   padding: 4%;
-  background-color: #fff;
+  background-color: #ffffe1;
   position: relative;
   z-index: 2;
   /* background-image: url('../images/sliding.jpg');
@@ -239,7 +239,7 @@ body.loaded .navbar {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  background: #f0e8d8;
+  background: #ffffe1;
   color: #333;
   justify-content: space-between;
   position: relative;
@@ -260,7 +260,7 @@ body.loaded .navbar {
 .barcode {
   position: absolute;
   top: 75%;
-  left: 4%;
+  left: 5%;
   transform-origin: left top;
   font-family: "Libre Barcode 39 Extended Text";
   font-size: 2vw;
@@ -276,7 +276,7 @@ body.loaded .navbar {
   position: absolute;
   color: #c3c3c3;
   mix-blend-mode: difference;
-  left: 5%;
+  left: 6%;
   top: 70%;
   font-size: 2rem;
   font-family: 'IBM Plex Mono', sans-serif;
@@ -578,7 +578,8 @@ body.loaded .navbar {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #000000;
+  background-color: #ffffe1;
+  border: 3px solid #10100e;
   color: #7e7e7e;
   font-family: "Roboto", monospace;
   font-weight: 400;
