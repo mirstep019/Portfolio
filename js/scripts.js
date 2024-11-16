@@ -54,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Scaling parameters
-  const initialScale = 1; // Starting scale
+  const initialScale = 1.1; // Starting scale
   const finalScale = 0.1; // Final scale when it reaches the smallest size
 
   // Distance for full scaling effect
-  const maxScroll = window.innerHeight * 0.7; // Adjust to control speed
+  const maxScroll = window.innerHeight * 1.2; // Adjust to control speed
 
   // Function to update logo based on scroll position
   function updateLogo(scroll) {

@@ -222,7 +222,7 @@ body.loaded .navbar {
 
 .fixed-content {
   position: relative;
-  height: 100vh;
+  height: 200vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -234,7 +234,7 @@ body.loaded .navbar {
 }
 
 .fixed-content2 {
-  height: 65vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -259,7 +259,7 @@ body.loaded .navbar {
 
 .barcode {
   position: absolute;
-  top: 75%;
+  top: 35%;
   left: 5%;
   transform-origin: left top;
   font-family: "Libre Barcode 39 Extended Text";
@@ -277,7 +277,7 @@ body.loaded .navbar {
   color: #c3c3c3;
   mix-blend-mode: difference;
   left: 6%;
-  top: 70%;
+  top: 32%;
   font-size: 2rem;
   font-family: 'IBM Plex Mono', sans-serif;
 }
@@ -302,7 +302,7 @@ body.loaded .navbar {
   mix-blend-mode: difference;
   display: flex;
   position: absolute;
-  bottom: 8rem;
+  top: 45%;  
   right: 5.5%;
   font-family: "IBM Plex Mono";
   font-weight: 400;
@@ -367,7 +367,7 @@ body.loaded .navbar {
 
 .ticker {
   position: absolute;
-  bottom: 0;
+  bottom: 0; 
   width: 100%;
   height: 5vh;
   white-space: nowrap;
@@ -411,7 +411,7 @@ body.loaded .navbar {
   margin: 0;
   padding: 0;
   font-weight: 600;
-  color: #ac9b7b;
+  color: #d6c199;
   margin-left: -10px;
 }
 
@@ -426,7 +426,7 @@ body.loaded .navbar {
 }
 
 .card {
-  background: #222222;
+  background: #202020;
   margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 20px;
@@ -461,7 +461,8 @@ body.loaded .navbar {
   margin: 0.7rem; /* Adjust or remove if not needed */
   cursor: none;
   padding-left: 20px;
-  color: #ac9b7b;
+  color: #d6c199;
+  /* color: #ac9b7b; */
   display: flex;
   justify-content: space-between; /* Rozloží text a ikonu na opačné strany */
   align-items: center; /* Centruje položky vertikálně */
@@ -474,7 +475,7 @@ body.loaded .navbar {
 .card-content {
   margin-top: 0;
   font-family: 'General Sans', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.3rem;
   padding-left: 30px;
   padding-right: 20px;
@@ -484,7 +485,8 @@ body.loaded .navbar {
 }
 .card.active,
 .card.active h2 {
-  background: #c5b392;
+  /* background: #c5b392; */
+  background-color: #d6c199;
   color: #37210e;
 }
 
@@ -579,7 +581,7 @@ body.loaded .navbar {
   width: 100%;
   overflow: hidden;
   background-color: #ffffe1;
-  border: 3px solid #10100e;
+  /* border: 3px solid #10100e; */
   color: #7e7e7e;
   font-family: "Roboto", monospace;
   font-weight: 400;
@@ -673,7 +675,7 @@ body.loaded .navbar {
   margin: 0 0 20px 20px;
   padding: 0;
   font-weight: 700;
-  color: #b5b5b5;
+  color: #d6c199;
 }
 .contact-text-right {
   font-size: 4vw;
@@ -682,7 +684,7 @@ body.loaded .navbar {
   margin: 0 40px 0 0;
   padding: 0;
   font-weight: 300;
-  color: #707070;
+  color: #706247;
   text-align: right;
 }
 
@@ -699,10 +701,10 @@ body.loaded .navbar {
 }
 
 .custom-hr {
-  width: 0;
+  width: 100%;
   border: none;
-  height: 4px;
-  background-color: #c5b392;
+  height: 3px;
+  background-color: #808080;
   margin: 0;
   padding: 0;
   transition: width 1s ease-out;
@@ -721,7 +723,7 @@ body.loaded .navbar {
 }
 
 .contact-link:hover {
-  color: #c5b392;
+  color: #d6c199;
 }
 
 .row-contact {
