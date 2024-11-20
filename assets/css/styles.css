@@ -15,24 +15,17 @@
 /* Inria Serif */
 @import url("https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap");
 
-
-
-
 body,
 html {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   cursor: none;
+  overflow-x: hidden;
 }
 
 body::selection {
   background-color: #000000;
   color: #ffffff;
-}
-
-[data-scroll-container] {
-  height: auto;
 }
 
 .reveal-on-scroll {
@@ -45,8 +38,6 @@ body::selection {
   opacity: 1;
   transform: translateY(0);
 }
-
-
 
 #preloader {
   position: fixed;
@@ -71,7 +62,6 @@ body::selection {
   color: rgb(222, 233, 225);
 }
 
-
 .preloader-letter {
   opacity: 0;
   display: inline-block;
@@ -94,7 +84,6 @@ body::selection {
   transition: width 300ms, height 300ms;
   z-index: 999;
   mix-blend-mode: difference;
-
 }
 
 @keyframes slideIn {
@@ -103,7 +92,7 @@ body::selection {
     opacity: 0;
   }
   100% {
-    top: 25px;
+    top: 2vh;
     opacity: 1;
   }
 }
@@ -144,23 +133,22 @@ body::selection {
 }
 
 .navbar a {
-  color: #fff;
+  color: #f0f0f0;
   text-decoration: none;
-  font-family: "IBM Plex Mono";
-  font-size: 2vh;
-  padding: 0 1.25rem;
+  font-family: "Switzer";
+  font-size: 1.3rem;
+  padding: 0 1.4rem;
   height: 100%;
+  font-weight: 500;
 }
 
 .navbar a:hover {
   text-decoration: underline;
 }
 
-
 body.loaded .navbar {
-  animation: slideIn 1.5s ease-out forwards; /* Spustí animaci při načtení */
+  animation: slideIn 1s ease-out forwards; /* Spustí animaci při načtení */
 }
-
 
 .cursor.large {
   height: 90px;
@@ -169,8 +157,33 @@ body.loaded .navbar {
   mix-blend-mode: difference;
 }
 
-
-.sliding-content {
+.dev-content {
+  position: relative;
+  height: 200vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-attachment: fixed;
+  color: #333;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.about-content {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  padding: 4%;
+  background-color: #ffffe1;
+  position: relative;
+  /* background-image: url('../images/sliding.jpg');
+  background-position: 50% 0%;
+  background-repeat: no-repeat; */
+}
+.what-content {
   height: 100vh;
   padding: 5%;
   display: flex;
@@ -184,27 +197,20 @@ body.loaded .navbar {
   background-size: cover;
   background-position: bottom;
   background-attachment: fixed; */
-
 }
-
-.sliding-content2 {
+.skills-content {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
-  color: white;
-  padding: 4%;
-  background-color: #ffffe1;
+  background: #ffffe1;
+  color: #333;
+  justify-content: space-evenly;
   position: relative;
-  z-index: 2;
-  /* background-image: url('../images/sliding.jpg');
-  background-position: 50% 0%;
-  background-repeat: no-repeat; */
 }
-
-.sliding-content3 {
-  height: 100vh;
+.contact-content {
+  height: 101vh;
   display: flex;
   align-items: stretch;
   justify-content: flex-end;
@@ -212,46 +218,16 @@ body.loaded .navbar {
   color: #ffffe3;
   position: relative;
   padding: 0;
-  z-index: 1;
+  z-index: 0;
   background-color: #10100e;
   /* background-image: url('../images/sliding.jpg');
   background-position: 50% 57.5%;
   background-repeat: no-repeat; */
 }
 
-
-.fixed-content {
-  position: relative;
-  height: 200vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-attachment: fixed;
-  color: #333;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.fixed-content2 {
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  background: #ffffe1;
-  color: #333;
-  justify-content: space-between;
-  position: relative;
-}
-
-
-
-
-
 .dev {
   /* font-family: "Inria Serif"; */
-  font-family: 'Clash Display', sans-serif;
+  font-family: "Clash Display", sans-serif;
   margin: 0;
   padding: 0;
   font-weight: 500;
@@ -268,21 +244,19 @@ body.loaded .navbar {
   padding: 0;
   font-weight: 200;
   z-index: 2;
-  color: #c3c3c3;
-  mix-blend-mode: difference; 
+  color: #f0f0f0;
+  mix-blend-mode: difference;
 }
 
 .live-clock {
   position: absolute;
-  color: #c3c3c3;
+  color: #f0f0f0;
   mix-blend-mode: difference;
   left: 6%;
   top: 32%;
   font-size: 2rem;
-  font-family: 'IBM Plex Mono', sans-serif;
+  font-family: "IBM Plex Mono", sans-serif;
 }
-
-
 
 /* Přidáme animaci pro reveal z pravé strany */
 @keyframes slideInRight {
@@ -298,11 +272,11 @@ body.loaded .navbar {
 
 .scrolldown {
   font-size: 1.4rem;
-  color: #fff;
+  color: #f0f0f0;
   mix-blend-mode: difference;
   display: flex;
   position: absolute;
-  top: 45%;  
+  top: 45%;
   right: 5.5%;
   font-family: "IBM Plex Mono";
   font-weight: 400;
@@ -311,14 +285,13 @@ body.loaded .navbar {
   animation-delay: 1s; /* Zpoždění animace po načtení stránky */
 }
 
-
 .dev-logo {
   cursor: none;
   color: #c3c3c3;
   mix-blend-mode: difference;
 }
 
-.dev-logo .dev{
+.dev-logo .dev {
   font-size: 50vh;
 }
 
@@ -327,11 +300,9 @@ body.loaded .navbar {
   left: 5%;
   top: 10px;
   transition: transform 0.2s ease-out;
-  transform-origin: top left; 
+  transform-origin: top left;
   z-index: 800;
 }
-
-
 
 .logo-container {
   position: fixed;
@@ -352,7 +323,6 @@ body.loaded .navbar {
   overflow: hidden;
 }
 
-
 #backgroundVideo {
   position: absolute; /* Přidáno 'position: absolute' */
   top: 0;
@@ -363,11 +333,9 @@ body.loaded .navbar {
   filter: brightness(0.7);
 }
 
-
-
 .ticker {
   position: absolute;
-  bottom: 0; 
+  bottom: 0;
   width: 100%;
   height: 5vh;
   white-space: nowrap;
@@ -394,8 +362,6 @@ body.loaded .navbar {
   padding-right: 40px;
 }
 
-
-
 @keyframes ticker {
   0% {
     transform: translate3d(0, 0, 0);
@@ -407,7 +373,7 @@ body.loaded .navbar {
 
 .what-text {
   font-size: 11rem;
-  font-family: 'General Sans', sans-serif;
+  font-family: "General Sans", sans-serif;
   margin: 0;
   padding: 0;
   font-weight: 600;
@@ -441,10 +407,8 @@ body.loaded .navbar {
   transform: translateY(0); /* Move back to original position */
 }
 
-
-
 .card-toggle h2 {
-  font-family: 'General Sans', sans-serif;
+  font-family: "General Sans", sans-serif;
   font-weight: 700;
   font-size: 2.3rem;
   margin-left: 10px;
@@ -474,7 +438,7 @@ body.loaded .navbar {
 
 .card-content {
   margin-top: 0;
-  font-family: 'General Sans', sans-serif;
+  font-family: "General Sans", sans-serif;
   font-weight: 500;
   font-size: 1.3rem;
   padding-left: 30px;
@@ -491,7 +455,7 @@ body.loaded .navbar {
 }
 
 .insight-text {
-  font-family: 'General Sans', sans-serif;
+  font-family: "General Sans", sans-serif;
   font-weight: 400;
   margin-top: -20px;
   padding-left: 17px;
@@ -500,17 +464,18 @@ body.loaded .navbar {
   text-transform: uppercase;
 }
 
-.what-text, .insight-text {
+.what-text,
+.insight-text {
   opacity: 0;
   transform: translateY(60px); /* Start moved up */
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.is-inview .what-text, .is-inview .insight-text {
+.is-inview .what-text,
+.is-inview .insight-text {
   opacity: 1;
   transform: translateY(0); /* Move to normal position */
 }
-
 
 .what-text sup,
 .skills-text sup,
@@ -582,10 +547,10 @@ body.loaded .navbar {
   overflow: hidden;
   background-color: #ffffe1;
   /* border: 3px solid #10100e; */
-  color: #7e7e7e;
-  font-family: "Roboto", monospace;
-  font-weight: 400;
-  font-size: 2.4rem;
+  color: #706969;
+  font-family: "IBM Plex Mono";
+  font-weight: 500;
+  font-size: 2.1rem;
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -628,7 +593,7 @@ body.loaded .navbar {
 
 .about-text {
   font-size: 11rem;
-  font-family: 'Gambarino', serif;
+  font-family: "Gambarino", serif;
   margin: 40px;
   padding: 0;
   font-weight: 400;
@@ -641,7 +606,7 @@ body.loaded .navbar {
 .about {
   max-width: 950px;
   text-align: center;
-  font-family: 'Switzer', sans-serif;
+  font-family: "Switzer", sans-serif;
   font-size: 1.7rem;
   color: #3a3a3a;
   line-height: 2.7rem;
@@ -668,6 +633,59 @@ body.loaded .navbar {
   height: 4vw;
 }
 
+
+.works-content {
+  position: relative;
+  height: calc(100vh * 4); /* Number of cards + extra height for smooth transition */
+  background-color: #10100e;
+  overflow: hidden;
+}
+
+.stacking-card {
+  position: fixed; /* Cards stay fixed during scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+  transform: translateY(100%); /* Start below the viewport */
+  z-index: 1; /* Default stacking context */
+}
+
+.card-1 {
+  background-color: #24221f;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.card-2 {
+  background-color: #181615;
+  border-radius: 30px;
+  z-index: 2;
+}
+
+.card-3 {
+  background-color: #202020;
+  border-radius: 30px;
+  z-index: 3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .contact-text-left {
   font-size: 8vw;
   font-family: "Roboto";
@@ -687,8 +705,6 @@ body.loaded .navbar {
   color: #706247;
   text-align: right;
 }
-
-
 
 .infoul {
   display: flex;
@@ -768,7 +784,6 @@ body.loaded .navbar {
   }
 }
 
-
 @media only screen and (max-width: 2050px) {
   .what-text {
     font-size: 10rem;
@@ -829,7 +844,7 @@ body.loaded .navbar {
   .insight-text {
     font-size: 1.2rem;
   }
-  .what-text{
+  .what-text {
     font-size: 6rem;
   }
 }
@@ -838,20 +853,19 @@ body.loaded .navbar {
     display: none;
   }
 
-  .sliding-content{
+  .sliding-content {
     flex-direction: column;
     justify-content: space-evenly;
   }
-  
-  .right-content{
+
+  .right-content {
     margin: auto 100px;
   }
 
-
-  .infoul{
+  .infoul {
     font-size: 3.3vw;
   }
-  .contact-text-left{
+  .contact-text-left {
     font-size: 7.2vw;
   }
 
@@ -865,12 +879,9 @@ body.loaded .navbar {
     cursor: auto;
   }
 
-  .ticker2{
+  .ticker2 {
     font-size: 1.7rem;
   }
-
-
-
 }
 
 ::selection {
