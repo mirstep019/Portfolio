@@ -179,6 +179,7 @@ body.loaded .navbar {
   padding: 4%;
   background-color: #ffffe1;
   position: relative;
+  z-index: 10;
   /* background-image: url('../images/sliding.jpg');
   background-position: 50% 0%;
   background-repeat: no-repeat; */
@@ -192,6 +193,8 @@ body.loaded .navbar {
   flex-direction: row;
   color: white;
   background-color: #10100e;
+  z-index: 10;
+  position: relative;
   /* background-image: url('https://wallpapers.com/images/featured-full/pure-black-background-py9pa0f1mlsscm9s.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -208,6 +211,7 @@ body.loaded .navbar {
   color: #333;
   justify-content: space-evenly;
   position: relative;
+  z-index: 10;
 }
 .contact-content {
   height: 101vh;
@@ -218,7 +222,7 @@ body.loaded .navbar {
   color: #ffffe3;
   position: relative;
   padding: 0;
-  z-index: 0;
+  z-index: 10;
   background-color: #10100e;
   /* background-image: url('../images/sliding.jpg');
   background-position: 50% 57.5%;
@@ -415,6 +419,7 @@ body.loaded .navbar {
 }
 
 .card-toggle {
+  z-index: 20;
   display: flex;
   width: 100%;
   align-items: center; /* Zarovnání položek ve středu */
@@ -632,50 +637,72 @@ body.loaded .navbar {
 .arrow2 img {
   height: 4vw;
 }
-
-
 .works-content {
   position: relative;
-  height: calc(100vh * 4); /* Number of cards + extra height for smooth transition */
+  height: calc(100vh * 4); /* Výška sekce podle počtu karet */
   background-color: #10100e;
   overflow: hidden;
 }
 
+.centered-h {
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffe1;
+  height: 100vh; /* Celá výška viewportu */
+}
+
+.centered-h h1 {
+  color: #ffffe1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s linear, opacity 0.1s linear;
+}
+
 .stacking-card {
-  position: fixed; /* Cards stay fixed during scroll */
+  position: fixed; /* Karty zůstávají na místě během scrollování */
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  height: 100vh; /* Karta zabírá celý viewport */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
   color: white;
-  transform: translateY(100%); /* Start below the viewport */
-  z-index: 1; /* Default stacking context */
+  z-index: -1; /* Základní pořadí překrytí */
+  transform: translateY(100%); /* Výchozí pozice pod viewportem */
+  justify-content: space-between; /* Obsah karty je rozdělen vlevo a vpravo */
+  align-items: center; /* Vertikálně zarovná obsah na střed */
+  padding: 0 5%; /* Vnitřní odsazení karty */
 }
 
-.card-1 {
-  background-color: #24221f;
-  border-radius: 30px;
-  z-index: 1;
+.stacking-card img {
+  max-height: 80%; /* Obrázek zabere maximálně 80 % výšky karty */
+  border-radius: 10px; /* Zaoblené rohy */
+  object-fit: cover; /* Obrázek bude zachovávat proporce */
 }
 
-.card-2 {
-  background-color: #181615;
-  border-radius: 30px;
-  z-index: 2;
+.stacking-card h2 {
+  margin: 0;
+  font-size: 2rem;
+  text-align: center;
+  color: #ffffe1;
 }
 
-.card-3 {
-  background-color: #202020;
-  border-radius: 30px;
-  z-index: 3;
+.stacking-card p {
+  margin-top: 1rem;
+  text-align: center;
+  color: #d3d3d3; /* Světlejší text pro popisek */
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-
-
+/* Specifické styly pro jednotlivé karty */
+.card-1 { background-color: #24221f; z-index: 1; }
+.card-2 { background-color: #181615; z-index: 2; }
+.card-3 { background-color: #202020; z-index: 3; }
 
 
 

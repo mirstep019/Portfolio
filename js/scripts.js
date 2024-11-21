@@ -3,42 +3,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const cards = document.querySelectorAll(".stacking-card");
   const worksContent = document.querySelector(".works-content");
+  const heading = document.querySelector(".centered-h h1");
   const viewportHeight = window.innerHeight;
 
   window.addEventListener("scroll", () => {
     const scrollPosition = window.scrollY;
-    const worksOffset = worksContent.offsetTop; // Starting position of works-content
-    const relativeScroll = scrollPosition - worksOffset; // Scroll relative to works-content
+    const worksOffset = worksContent.offsetTop; // Offset sekce works-content
+    const worksHeight = worksContent.offsetHeight;
+    const revealOffset = viewportHeight * 0.8; // Nadpis se objeví těsně před sekcí
 
-    // Ensure stacking logic works within the `.works-content` section
-    if (relativeScroll >= 0 && relativeScroll <= cards.length * viewportHeight) {
+    // Paralax efekt pro nadpis
+    if (
+      scrollPosition >= worksOffset - revealOffset &&
+      scrollPosition <= worksOffset + worksHeight
+    ) {
+      const relativeScroll = scrollPosition - (worksOffset - revealOffset); // Relativní scroll
+      const progress = Math.min(relativeScroll / viewportHeight, 1); // Progres scrollování
+
+      heading.style.transform = `translateY(${progress * 50}%)`; // Posun nadpisu dolů
+      heading.style.opacity = 2 - progress; // Zmenšující se viditelnost
+    } else {
+      heading.style.opacity = 0; // Skrytý nadpis
+    }
+
+    if (scrollPosition < worksOffset) {
+      // Pokud je nad sekcí works-content, skryj karty
+      cards.forEach((card) => {
+        card.style.opacity = "0";
+        card.style.pointerEvents = "none"; // Zabrání interakci s kartami
+      });
+    } else {
+      // Pokud je uživatel v sekci works-content nebo níže, ukaž karty
+      cards.forEach((card) => {
+        card.style.opacity = "1";
+        card.style.pointerEvents = "auto";
+      });
+    }
+
+    // Animace karet
+    if (scrollPosition >= worksOffset && scrollPosition <= worksOffset + worksHeight) {
+      const relativeScroll = scrollPosition - worksOffset; // Relativní scroll vůči sekci works-content
+
       cards.forEach((card, index) => {
         const cardStart = index * viewportHeight;
         const cardEnd = (index + 1) * viewportHeight;
 
         if (relativeScroll >= cardStart && relativeScroll < cardEnd) {
-          // Card is actively being scrolled into position
+          // Animace aktivní karty
           const progress = (relativeScroll - cardStart) / viewportHeight;
           card.style.transform = `translateY(${(1 - progress) * 100}%)`;
         } else if (relativeScroll < cardStart) {
-          // Card is below the viewport
+          // Karta je pod viewportem
           card.style.transform = `translateY(100%)`;
         } else if (relativeScroll >= cardEnd) {
-          // Card is fully stacked
+          // Karta je zcela zobrazena
           card.style.transform = `translateY(0)`;
         }
       });
     }
-
-    // Fix for ensuring the first card is not visible at the bottom
-    if (relativeScroll < 0) {
-      cards.forEach((card) => {
-        card.style.transform = `translateY(100%)`; // Reset all cards below the viewport
-      });
-    }
   });
-
-
 
 
   // Logo scaling logic
