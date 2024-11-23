@@ -637,6 +637,10 @@ body.loaded .navbar {
 .arrow2 img {
   height: 4vw;
 }
+
+
+
+
 .works-content {
   position: relative;
   height: calc(100vh * 4); /* Výška sekce podle počtu karet */
@@ -645,22 +649,23 @@ body.loaded .navbar {
 }
 
 .centered-h {
-  position: relative;
-  text-align: center;
+  position: fixed; /* Nadpis je pevný při scrollování */
+  top: 0;
+  left: 0;
+  width: 100%; /* Zajištění šířky na celou viewport */
+  height: 100vh; /* Nadpis zabírá celý viewport */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffe1;
-  height: 100vh; /* Celá výška viewportu */
+  align-items: center; /* Vertikální centrování */
+  justify-content: center; /* Horizontální centrování */
+  text-align: center; /* Text je zarovnán na střed */
+  color: #ffffe1; /* Barva textu */
 }
 
 .centered-h h1 {
   color: #ffffe1;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s linear, opacity 0.1s linear;
+  margin: 0;
+  transform: translate(0, 0); /* Žádné posunutí */
+  transition: transform 0.1s linear, opacity 0.1s linear; /* Hladký přechod */
 }
 
 .stacking-card {
@@ -675,39 +680,51 @@ body.loaded .navbar {
   transform: translateY(100%); /* Výchozí pozice pod viewportem */
   justify-content: space-between; /* Obsah karty je rozdělen vlevo a vpravo */
   align-items: center; /* Vertikálně zarovná obsah na střed */
-  padding: 0 5%; /* Vnitřní odsazení karty */
+  padding: 5%; /* Vnitřní odsazení karty (příklad) */
+  box-sizing: border-box; /* Padding započítán do šířky */
 }
 
 .stacking-card img {
-  max-height: 80%; /* Obrázek zabere maximálně 80 % výšky karty */
-  border-radius: 10px; /* Zaoblené rohy */
+  max-width: 70%;
+  border-radius: 25px; /* Zaoblené rohy */
   object-fit: cover; /* Obrázek bude zachovávat proporce */
 }
 
 .stacking-card h2 {
+  font-family: "General Sans", sans-serif;
+  font-weight: 700;
   margin: 0;
-  font-size: 2rem;
-  text-align: center;
+  font-size: 2.3rem;
+  text-align: left;
   color: #ffffe1;
 }
 
 .stacking-card p {
+  font-family: "General Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.3rem;
   margin-top: 1rem;
-  text-align: center;
-  color: #d3d3d3; /* Světlejší text pro popisek */
-  font-size: 1rem;
+  text-align: left;
+  color: #919191; /* Světlejší text pro popisek */
   line-height: 1.5;
 }
 
 /* Specifické styly pro jednotlivé karty */
-.card-1 { background-color: #24221f; z-index: 1; }
-.card-2 { background-color: #181615; z-index: 2; }
-.card-3 { background-color: #202020; z-index: 3; }
-
-
-
-
-
+.card-1 {
+  background-color: #24221f;
+  z-index: 1;
+  border-radius: 50px 50px 0 0;
+}
+.card-2 {
+  background-color: #181615;
+  z-index: 2;
+  border-radius: 50px 50px 0 0;
+}
+.card-3 {
+  background-color: #202020;
+  z-index: 3;
+  border-radius: 50px 50px 0 0;
+}
 
 
 
