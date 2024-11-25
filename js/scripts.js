@@ -90,9 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
          y: 0,
          scrollTrigger: {
            trigger: element,
-           start: "top 80%",
-           end: "top 60%",
-           scrub: true,
+           start: "top 90%",
+           end: "top 80%",
+           scrub: 0.2,
          },
        }
      );

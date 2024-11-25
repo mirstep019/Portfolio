@@ -258,7 +258,7 @@ body.loaded .navbar {
   mix-blend-mode: difference;
   left: 6%;
   top: 32%;
-  font-size: 2rem;
+  font-size: 2vw;
   font-family: "IBM Plex Mono", sans-serif;
 }
 
@@ -610,7 +610,7 @@ body.loaded .navbar {
 
 .about {
   max-width: 950px;
-  text-align: center;
+  text-align: justify;
   font-family: "Switzer", sans-serif;
   font-size: 1.7rem;
   color: #3a3a3a;
@@ -679,15 +679,17 @@ body.loaded .navbar {
   z-index: -1; /* Základní pořadí překrytí */
   transform: translateY(100%); /* Výchozí pozice pod viewportem */
   justify-content: space-between; /* Obsah karty je rozdělen vlevo a vpravo */
-  align-items: center; /* Vertikálně zarovná obsah na střed */
-  padding: 5%; /* Vnitřní odsazení karty (příklad) */
+  align-items: stretch; /* Vertikálně zarovná obsah na střed */
+  padding: 0; /* Vnitřní odsazení karty (příklad) */
   box-sizing: border-box; /* Padding započítán do šířky */
 }
 
 .stacking-card img {
-  max-width: 70%;
-  border-radius: 25px; /* Zaoblené rohy */
+  height: 100%;
+  width: 50vw;
+  border-radius: 25px 0px 0px 25px; /* Zaoblené rohy */
   object-fit: cover; /* Obrázek bude zachovávat proporce */
+  filter: brightness(0.45);
 }
 
 .stacking-card h2 {
@@ -725,6 +727,14 @@ body.loaded .navbar {
   z-index: 3;
   border-radius: 50px 50px 0 0;
 }
+
+.card-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+}
+
 
 
 
@@ -897,14 +907,21 @@ body.loaded .navbar {
     display: none;
   }
 
-  .sliding-content {
+  .right-content{
+    margin: 20px;
+  }
+  .what-content {
+    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    padding-top: 5%;
+    justify-content: center;
   }
 
-  .right-content {
-    margin: auto 100px;
+  .insight-text{
+    text-align: center;
+    margin-top: 2%;
   }
+
 
   .infoul {
     font-size: 3.3vw;
@@ -926,7 +943,62 @@ body.loaded .navbar {
   .ticker2 {
     font-size: 1.7rem;
   }
+
+  .stacking-card p {
+    font-size: 1rem;
+  }
+  .stacking-card h2 {
+    font-size: 1.7rem;
+  }
+  .about {
+    font-size: 1.2rem;
+    width: 90vw;
+  }
+
+  .dev-logo .dev {
+    font-size: 40vh;
+  }
+  
+  .skills-text{
+    font-size: 6rem;
+  }
+
+  .scrolldown{
+    font-size: 1.2rem;
+  }
+
 }
+
+@media only screen and (max-width: 768px) {
+
+  .dev-logo .dev {
+    font-size: 30vh;
+  }
+  .about-text, .what-text, .skills-text{
+    font-size: 5rem;
+  }
+  .about-text{
+    margin: 0;
+  }
+  .about{
+    line-height: 1.8rem;
+  }
+
+  .card-title{
+    margin: 0.4rem;
+  }
+  .card-toggle h2{
+    font-size: 1.3rem;
+  }
+  .toggle-icon{
+    font-size: 2rem;
+  }
+  .card-content{
+    font-size: 1rem;
+  }
+
+}
+
 
 ::selection {
   background-color: #5b4531;
