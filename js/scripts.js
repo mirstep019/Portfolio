@@ -27,10 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (scrollPosition < worksOffset) {
-      // Pokud je nad sekcí works-content, skryj karty
       cards.forEach((card) => {
         card.style.opacity = "0";
-        card.style.pointerEvents = "none"; // Zabrání interakci s kartami
+        // Nastavíme pointerEvents jen pro karty, ne pro navigační odkazy
+        if (!card.closest(".links")) {
+          card.style.pointerEvents = "none";
+        }
       });
     } else {
       // Pokud je uživatel v sekci works-content nebo níže, ukaž karty
@@ -41,7 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Animace karet
-    if (scrollPosition >= worksOffset && scrollPosition <= worksOffset + worksHeight) {
+    if (
+      scrollPosition >= worksOffset &&
+      scrollPosition <= worksOffset + worksHeight
+    ) {
       const relativeScroll = scrollPosition - worksOffset; // Relativní scroll vůči sekci works-content
 
       cards.forEach((card, index) => {
@@ -63,12 +68,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-
   // Logo scaling logic
   const devLogo = document.getElementById("devLogo");
   if (devLogo) {
     gsap.to(devLogo, {
       scale: 0.1, // Scale down
+      y: 0,
       scrollTrigger: {
         trigger: "#section1",
         start: "top top",
@@ -78,25 +83,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-
-   // Reveal elements on scroll
-   const elementsToReveal = document.querySelectorAll(".reveal-on-scroll");
-   elementsToReveal.forEach((element) => {
-     gsap.fromTo(
-       element,
-       { opacity: 0, y: 20 },
-       {
-         opacity: 1,
-         y: 0,
-         scrollTrigger: {
-           trigger: element,
-           start: "top 90%",
-           end: "top 80%",
-           scrub: 0.2,
-         },
-       }
-     );
-   });
+  // Reveal elements on scroll
+  const elementsToReveal = document.querySelectorAll(".reveal-on-scroll");
+  elementsToReveal.forEach((element) => {
+    gsap.fromTo(
+      element,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: element,
+          start: "top 90%",
+          end: "top 80%",
+          scrub: 0.2,
+        },
+      }
+    );
+  });
 
   // Ticker animations
   const ticker = document.getElementById("ticker-text");
@@ -196,4 +200,93 @@ document.addEventListener("DOMContentLoaded", function () {
       onComplete: () => preloader.remove(),
     });
   });
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+  
+      const targetID = this.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetID);
+  
+      if (targetSection) {
+        // Zastavíme jakýkoli smooth scroll (např. Lenis nebo GSAP)
+        if (lenis) lenis.stop();
+  
+        // Okamžitý posun na cílovou sekci
+        const offsetTop = targetSection.offsetTop;
+  
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth",
+        });
+  
+        // Restart smooth scroll po zpoždění
+        setTimeout(() => {
+          if (lenis) lenis.start();
+        }, 600); // Délka podle vaší potřeby
+      }
+    });
+  });
+  
+
+
+  const updateLayout = () => {
+    const contactContent = document.querySelector(".contact-content");
+
+    // Kontrola šířky okna
+    if (window.innerWidth <= 768) {
+      // HTML pro menší obrazovky
+      contactContent.innerHTML = `
+        <div class="mobile-footer">
+          <h1 class="contact-text-right">LET'S WORK TOGETHER</h1>
+          <h1 class="contact-text-left"><sup>(5)</sup>CONTACT ME</h1>
+        </div>
+        <div>
+        <ul class="infoul">
+          <li class="email-li">EMAIL</li>
+        </ul>
+        <div class="row-contact">
+          <div class="email-container">
+            <a class="contact-link" href="mailto:mira.stepanek17@seznam.cz">mira.stepanek17@seznam.cz</a>
+          </div>
+        </div>
+        <ul class="infoul">
+          <li class="instagram-li">INSTAGRAM</li>
+        </ul>
+        <div class="row-contact">
+          <div class="instagram-container">
+            <a class="contact-link" href="https://www.instagram.com/mirasstep/">mirasstep</a>
+          </div>
+        </div>
+        </div>
+      `;
+    } else {
+      // Původní HTML pro větší obrazovky
+      contactContent.innerHTML = `
+        <h1 class="contact-text-right">LET'S WORK TOGETHER</h1>
+        <h1 class="contact-text-left"><sup>(5)</sup>CONTACT ME</h1>
+        <ul class="infoul">
+          <li class="email-li">EMAIL</li>
+          <li class="instagram-li">INSTAGRAM</li>
+        </ul>
+        <hr class="custom-hr">
+        <div class="row-contact">
+          <div class="email-container">
+            <a class="contact-link" href="mailto:mira.stepanek17@seznam.cz">mira.stepanek17@seznam.cz</a>
+          </div>
+          <div class="instagram-container">
+            <a class="contact-link" href="https://www.instagram.com/mirasstep/">mirasstep</a>
+          </div>
+        </div>
+      `;
+    }
+  };
+
+  // Změna layoutu při načtení stránky
+  updateLayout();
+
+  // Změna layoutu při změně velikosti okna
+  window.addEventListener("resize", updateLayout);
+
+
 });

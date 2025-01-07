@@ -115,6 +115,7 @@ body::selection {
 .navbar {
   position: fixed;
   top: 0;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -123,7 +124,7 @@ body::selection {
   mix-blend-mode: difference;
   flex-wrap: nowrap;
   align-content: center;
-  align-items: stretch;
+  align-items: center;
   max-width: 100%;
 }
 
@@ -136,10 +137,12 @@ body::selection {
   color: #f0f0f0;
   text-decoration: none;
   font-family: "Switzer";
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   padding: 0 1.4rem;
   height: 100%;
   font-weight: 500;
+  z-index: 990;
+  cursor: none;
 }
 
 .navbar a:hover {
@@ -438,7 +441,11 @@ body.loaded .navbar {
 }
 
 .toggle-icon {
+  display: inline-block;
+  width: 50px;
   font-size: 3rem;
+  text-align: center;
+  font-weight: 500;
 }
 
 .card-content {
@@ -658,11 +665,11 @@ body.loaded .navbar {
   align-items: center; /* Vertikální centrování */
   justify-content: center; /* Horizontální centrování */
   text-align: center; /* Text je zarovnán na střed */
-  color: #ffffe1; /* Barva textu */
+  color: #d6c199; /* Barva textu */
 }
 
 .centered-h h1 {
-  color: #ffffe1;
+  color: #d6c199;
   margin: 0;
   transform: translate(0, 0); /* Žádné posunutí */
   transition: transform 0.1s linear, opacity 0.1s linear; /* Hladký přechod */
@@ -922,6 +929,16 @@ body.loaded .navbar {
     margin-top: 2%;
   }
 
+  .barcode{
+    font-size: 1.7rem;
+  }
+  .live-clock{
+    font-size: 1.4rem;
+  }
+
+
+
+
 
   .infoul {
     font-size: 3.3vw;
@@ -975,13 +992,22 @@ body.loaded .navbar {
     font-size: 30vh;
   }
   .about-text, .what-text, .skills-text{
-    font-size: 5rem;
+    font-size: 4rem;
   }
   .about-text{
     margin: 0;
   }
   .about{
     line-height: 1.8rem;
+  }
+
+  .navbar a {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .ticker2 {
+    font-size: 1.3rem;
   }
 
   .card-title{
@@ -996,6 +1022,28 @@ body.loaded .navbar {
   .card-content{
     font-size: 1rem;
   }
+
+  .contact-text-left{
+    font-size: 3rem;
+  }
+  .contact-text-right{
+    font-size: 1.9rem;
+  }
+
+  .infoul{
+    font-size: 1.4rem;
+  }
+  .contact-link {
+    font-size: 1.4rem;
+  }
+  .row-contact{
+    margin: 10px 0px 50px 40px;
+  }
+  .mobile-footer{
+    margin-bottom: 70px;
+  }
+
+  
 
 }
 

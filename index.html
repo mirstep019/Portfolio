@@ -14,9 +14,9 @@
 
 <body>
   <!-- Preloader -->
-  <div id="preloader">
+  <!-- <div id="preloader">
     <div id="preloader-text">Miroslav Stepanek</div>
-  </div>
+  </div> -->
 
   <!-- Custom Cursor -->
   <div class="cursor"></div>
@@ -304,12 +304,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   <script src="js/scripts.js"></script>
   <script>
     // Inicializace Lenis Scroll
     const lenis = new Lenis({
       duration: 1.2, // Doba hladkého scrollování
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Přirozené zrychlení
+      //easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Přirozené zrychlení
       direction: "vertical", // Vertikální scroll
       smooth: true, // Povolit smooth scrolling
       smoothTouch: true, // Povolit smooth scrolling i na touch zařízení
@@ -323,18 +324,18 @@
     requestAnimationFrame(raf);
   </script>
   <script>
-    window.addEventListener("load", function () {
-      // Hide the preloader if everything is loaded
-      document.body.classList.add("loaded");
-      setTimeout(hidePreloader, 500);  // Delay for effect
-    });
+    // window.addEventListener("load", function () {
+    //   // Hide the preloader if everything is loaded
+    //   document.body.classList.add("loaded");
+    //   setTimeout(hidePreloader, 500);  // Delay for effect
+    // });
 
-    function hidePreloader() {
-      const preloader = document.getElementById("preloader");
-      preloader.style.transition = "opacity 0.5s ease";
-      preloader.style.opacity = "0";
-      setTimeout(() => preloader.remove(), 500);
-    }
+    // function hidePreloader() {
+    //   const preloader = document.getElementById("preloader");
+    //   preloader.style.transition = "opacity 0.5s ease";
+    //   preloader.style.opacity = "0";
+    //   setTimeout(() => preloader.remove(), 500);
+    // }
 
     function updateClock() {
       const clockElement = document.getElementById('live-clock');
